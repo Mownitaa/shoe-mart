@@ -1,8 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../redux/slices/cartSlice';
+
 export const ProductCard = (props) => {
-    const {id, name, price, img, type } = props.product;
+
+  const dispatch = useDispatch()
+  const addToCart = ()=>{
+    dispatch(cartActions.addItem({
+      id: props.id,
+      name: props.name,
+      price: props.price,
+      img: props.img
+    })
+  );
+    alert("Product Added Successfully!")
+  }
+
+  const {id, name, price, img, type } = props.product;
   return (
     <div>
 <div
@@ -28,7 +45,7 @@ export const ProductCard = (props) => {
     <span className="mb-4 lg:mr-48 sm:mr-36 text-base text-neutral-600 dark:text-neutral-200">
       {price}
     </span>
-    <span className='mt-4 text-2xl'>
+    <span className='mt-4 text-2xl' onClick={addToCart}>
     <ion-icon name="add-circle"></ion-icon>
     </span>
   </div>
