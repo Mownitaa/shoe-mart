@@ -7,6 +7,7 @@ import { Checkout } from './Pages/Checkout/Checkout'
 import {Navigation} from './Pages/Shared/Navigation/Navigation'
 import { Login } from './Pages/Login/Login/Login'
 import { Register } from './Pages/Login/Register/Register'
+import { ProductDetails } from './Pages/ProductList/ProductDetails';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/shop">
           <Shop></Shop>
+          </Route>
+          <Route path="/shop/:productId">
+          <ProductDetails></ProductDetails>
           </Route>
           <Route path="/cart">
           <Cart></Cart>

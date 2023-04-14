@@ -16,7 +16,7 @@ export const Services = () => {
     });
 
     return (
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
+        <div className="mb-36 grid md:grid-cols-4 sm:grid-cols-2 gap-4">
             {dataComp}
         </div>
     )
