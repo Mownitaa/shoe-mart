@@ -4,7 +4,6 @@ import { Home } from './Pages/Home/Home'
 import { Shop } from './Pages/Shop/Shop'
 import { Cart } from './Pages/Cart/Cart'
 import { Checkout } from './Pages/Checkout/Checkout'
-import { ProductDetails } from './Pages/ProductDetails/ProductDetails'
 import {Navigation} from './Pages/Shared/Navigation/Navigation'
 import { Login } from './Pages/Login/Login/Login'
 import { Register } from './Pages/Login/Register/Register'
@@ -31,9 +30,6 @@ function App() {
           </Route>
           <Route path="/checkout">
           <Checkout></Checkout>
-          </Route>
-          <Route path="/productDetails">
-          <ProductDetails></ProductDetails>
           </Route>
           <Route path="/login">
           <Login></Login>

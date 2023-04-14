@@ -1,16 +1,16 @@
 import React from 'react'
 import Data from './ServiceData'
-import {Card} from './Card'
+import {ServiceCard} from './ServiceCard'
 
 export const Services = () => {
     const dataComp = Data.map((data) => {
         return (
             <div>
-                <Card 
-                key={data.key}
+                <ServiceCard 
+                key={data.id}
                 icon={data.icon}
                 title={data.title}
-                subtitle={data.subtitle}></Card>
+                subtitle={data.subtitle}></ServiceCard>
             </div>
           )
     });

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Card = (props) => {
+export const ServiceCard = (props) => {
   return (
     <div className='mt-24 mx-auto text-left block max-w-[22rem] rounded-lg bg-black p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.07)] 
     hover:bg-white'>
