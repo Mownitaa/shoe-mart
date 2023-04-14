@@ -34,7 +34,7 @@ export const Navigation = () => {
         {
           Links.map((link)=>(
             <li key={link.name} className='md:ml-8 text-l md:my-0 my-7'>
-              <a href={link.link} className='text-dark hover:text-grey-400 duration-500'>{link.name}</a>
+              <a href={link.link} className='text-black hover:text-gray-400 duration-500'>{link.name}</a>
             </li>
           ))
         }

@@ -1,0 +1,23 @@
+[
+    {
+        "icon": "speedometer-outline",
+        "title": "Fast Delivery",
+        "subtitle": "Fast delivery all over the Bangladesh",
+    },
+    {
+        "icon": "bus-outline",
+        "title": "Free Shipping",
+        "subtitle": "Free shipping all over the Bangladesh",
+    },
+    {
+        "icon": "cash-outline",
+        "title": "Cash On Delivery",
+        "subtitle": "Cash on delivery all over the Bangladesh",
+    },
+    {
+        "icon": "refresh-outline",
+        "title": "Return Policy",
+        "subtitle": "You can return any product within 3 days",
+    }
+]
+
