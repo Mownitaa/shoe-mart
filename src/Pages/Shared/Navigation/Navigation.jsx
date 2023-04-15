@@ -48,7 +48,7 @@ const {user,logout} = useAuth();
       {
               user?.email ?
               <div>
-            <button onClick={logout} className="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+            <button onClick={logout} className="bg-white text-red-700 border-hidden text-black font-bold py-2 px-4 rounded" type="button">
         Logout
       </button>
             {/* <NavLink to="/dashboard">
