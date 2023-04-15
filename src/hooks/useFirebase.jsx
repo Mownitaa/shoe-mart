@@ -9,8 +9,8 @@ const useFirebase = () => {
 const [user,setUser] = useState({});
 const [isLoading, setIsLoading] = useState(true);
 const [authError, setAuthError] = useState('');
-const [admin, setAdmin] = useState(false);
-const [token, setToken] = useState('');
+// const [admin, setAdmin] = useState(false);
+// const [token, setToken] = useState('');
 
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
@@ -21,21 +21,23 @@ const googleProvider = new GoogleAuthProvider();
         createUserWithEmailAndPassword(auth,email,password)
         .then((userCredential) => {
             setAuthError('');
-            const newUser = {email, displayName:name};
-            setUser(newUser);
+            const user = userCredential.user;
+            // const newUser = {email, displayName:name};
+            // setUser(newUser);
             //save user to database
-            saveUser(email, name, 'POST');
+            // saveUser(email, name, 'POST');
             //send name to firebase after creation
-            updateProfile(auth.currentUser, {
-              displayName: name
-            }).then(() => {
+          //   updateProfile(auth.currentUser, {
+          //     displayName: name
+            })
+          // .then(() => {
              
-            }).catch((error) => {
+          //   }).catch((error) => {
               
-            });
+          //   });
 
-            history.replace('/');
-          })
+          //   history.replace('/');
+          // })
           .catch((error) => {
             setAuthError(error.message);
             console.log(error);
@@ -64,14 +66,14 @@ const googleProvider = new GoogleAuthProvider();
       }
 
 
-    //google sign in
+    // google sign in
     const signInWithGoogle = (location, history) => {
         setIsLoading(true);
 
         signInWithPopup(auth, googleProvider)
         .then((result) => {
           const user = result.user;
-          saveUser(user.email, user.displayName, 'PUT')
+          // saveUser(user.email, user.displayName, 'PUT')
           setAuthError('');
           const destination = location?.state?.from || '/';
             history.replace(destination);
@@ -101,11 +103,11 @@ const googleProvider = new GoogleAuthProvider();
         }, [auth])
 
         //admin
-        useEffect(()=> {
-            fetch(`https://appointlet-server.vercel.app/users/${user.email}`)
-            .then(res=>res.json())
-            .then(data=> setAdmin(data.admin))
-        }, [user.email])
+        // useEffect(()=> {
+        //     fetch(`https://appointlet-server.vercel.app/users/${user.email}`)
+        //     .then(res=>res.json())
+        //     .then(data=> setAdmin(data.admin))
+        // }, [user.email])
 
 
     //logout user
@@ -120,22 +122,22 @@ const googleProvider = new GoogleAuthProvider();
           
       }
 
-      const saveUser = (email, displayName, method) => {
-        const user = {email, displayName};
-        fetch('https://appointlet-server.vercel.app/users', {
-          method:method,
-          headers:{
-            'content-type': 'application/json'
-          },
-          body:JSON.stringify(user)
-        })
-        .then()
-      }
+    //   const saveUser = (email, displayName, method) => {
+    //     const user = {email, displayName};
+    //     fetch('https://appointlet-server.vercel.app/users', {
+    //       method:method,
+    //       headers:{
+    //         'content-type': 'application/json'
+    //       },
+    //       body:JSON.stringify(user)
+    //     })
+    //     .then()
+    //   }
 
     return {
         user,
-        admin,
-        token,
+        // admin,
+        // token,
         isLoading,
         authError,
         registerUser,

@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import userIcon from '../../../assets/images/userIcon.png'
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+
 
 export const Navigation = () => {
+  //get user
+const {user,logout} = useAuth();
+
     let Links =[
         {name:"Home",link:"/home"},
         {name:"Shop",link:"/shop"},
@@ -37,9 +43,35 @@ export const Navigation = () => {
             <li key={link.name} className='md:ml-8 text-l md:my-0 my-7'>
               <a href={link.link} className='text-black hover:text-gray-400 duration-500'>{link.name}</a>
             </li>
+
           ))
         }
+        <div>
+      {
+              user?.email ?
+              <div>
+            <button onClick={logout} class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+        Logout
+      </button>
+            <NavLink to="/dashboard">
+            <button class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+              Dashboard
+            </button>
+            </NavLink>
+              </div>
+              :
+              <NavLink to="/login">
+            <button class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+              Login
+            </button>
+            </NavLink>
+            }
+          </div>
       </ul>
+      
+
+
+
       </div>
     </div>
   )
