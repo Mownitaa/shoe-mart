@@ -17,7 +17,9 @@ export const ProductCard = (props) => {
       img: props.img
     })
   );
-    toast.success("Product Added Successfully!")
+    toast.success("Product Added Successfully!", {
+      toastId: 'success1',
+  })
   };
 
   const {id, name, price, img, type } = props.product;

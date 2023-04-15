@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 import { getAuth,onAuthStateChanged,signOut,GoogleAuthProvider ,signInWithPopup,updateProfile, getIdToken,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from 'react-toastify';
 
 // initializeFirebase app
 initializeFirebase();
@@ -113,6 +114,9 @@ const googleProvider = new GoogleAuthProvider();
     //logout user
     const logout = () =>{
         setIsLoading(true);
+        toast.success('User logout successful', {
+          toastId: 'success1',
+      })
            signOut(auth).then(() => {
           // Sign-out successful.
           }).catch((error) => {

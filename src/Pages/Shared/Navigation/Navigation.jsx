@@ -13,8 +13,6 @@ const {user,logout} = useAuth();
         {name:"Shop",link:"/shop"},
         {name:"Cart",link:"/cart"},
         {name:"Dashboard",link:"/dashboard"},
-        {name:<img className='w-12 mx-auto' src={userIcon} alt=""/>,link:"/login"},
-        {name:<ion-icon name="log-in-outline"></ion-icon>,link:"/login"},
       ];
       let [open,setOpen]=useState(false);
  
@@ -50,28 +48,24 @@ const {user,logout} = useAuth();
       {
               user?.email ?
               <div>
-            <button onClick={logout} class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+            <button onClick={logout} className="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
         Logout
       </button>
-            <NavLink to="/dashboard">
-            <button class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
+            {/* <NavLink to="/dashboard">
+            <button className="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
               Dashboard
             </button>
-            </NavLink>
+            </NavLink> */}
               </div>
               :
               <NavLink to="/login">
-            <button class="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
-              Login
+            <button className="py-1 px-1 bg-white hover:bg-blue-300 text-black font-bold border-none rounded-full" type="button">
+            <img className='w-12 mx-auto' src={userIcon} alt=""/>
             </button>
             </NavLink>
             }
           </div>
       </ul>
-      
-
-
-
       </div>
     </div>
   )

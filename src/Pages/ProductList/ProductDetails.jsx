@@ -24,7 +24,9 @@ export const ProductDetails = (props) => {
         img: props.img
       })
     );
-      toast.success("Product Added Successfully!")
+      toast.success("Product Added Successfully!", {
+        toastId: 'success1',
+    })
     };
 
 
