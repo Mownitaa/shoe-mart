@@ -22,7 +22,6 @@ const googleProvider = new GoogleAuthProvider();
         createUserWithEmailAndPassword(auth,email,password)
         .then((userCredential) => {
             setAuthError('');
-            const user = userCredential.user;
             // const newUser = {email, displayName:name};
             // setUser(newUser);
             //save user to database
@@ -46,7 +45,7 @@ const googleProvider = new GoogleAuthProvider();
           .finally(() => setIsLoading(false));
         }
 
-    //loginUser with email/password
+    //login with email/password
     const loginUser= (email,password, location, history) =>{
         setIsLoading(true);
 
@@ -58,9 +57,6 @@ const googleProvider = new GoogleAuthProvider();
           })
           .catch((error) => {
             setAuthError(error.message);
-
-            // const errorCode = error.code;
-            // const errorMessage = error.message;
           })
           .finally(() => setIsLoading(false));
         

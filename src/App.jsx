@@ -9,6 +9,7 @@ import { Login } from './Pages/Login/Login/Login'
 import { Register } from './Pages/Login/Register/Register'
 import { ProductDetails } from './Pages/ProductList/ProductDetails';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/Routes/PrivateRoute';
 
 
 function App() {
@@ -19,21 +20,21 @@ function App() {
      <Router>
         <Navigation></Navigation>
         <Switch>
-          <Route exact path="/">
+          <PrivateRoute exact path="/">
           <Home></Home>
-          </Route>
-          <Route path="/home">
+          </PrivateRoute>
+          <PrivateRoute path="/home">
           <Home></Home>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/shop">
           <Shop></Shop>
           </Route>
-          <Route path="/shop/:productId">
+          <PrivateRoute path="/shop/:productId">
           <ProductDetails></ProductDetails>
-          </Route>
-          <Route path="/cart">
+          </PrivateRoute>
+          <PrivateRoute path="/cart">
           <Cart></Cart>
-          </Route>
+          </PrivateRoute>
           <Route path="/checkout">
           <Checkout></Checkout>
           </Route>
