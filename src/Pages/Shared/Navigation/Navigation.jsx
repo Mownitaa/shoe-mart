@@ -12,7 +12,7 @@ const {user,logout} = useAuth();
         {name:"Home",link:"/home"},
         {name:"Shop",link:"/shop"},
         {name:"Cart",link:"/cart"},
-        {name:"Dashboard",link:"/dashboard"},
+        // {name:"Dashboard",link:"/dashboard"},
       ];
       let [open,setOpen]=useState(false);
  
@@ -47,15 +47,15 @@ const {user,logout} = useAuth();
         <div>
       {
               user?.email ?
-              <div>
+              <div className='ml-4'>
+                <NavLink to="/dashboard">
+            <button className="bg-white text-black font-bold py-2 px-4 hover:border-none rounded" type="button">
+              Dashboard
+            </button>
+            </NavLink>
             <button onClick={logout} className="bg-white text-red-700 border-hidden text-black font-bold py-2 px-4 rounded" type="button">
         Logout
       </button>
-            {/* <NavLink to="/dashboard">
-            <button className="bg-white hover:bg-blue-300 text-black font-bold py-2 px-4 rounded" type="button">
-              Dashboard
-            </button>
-            </NavLink> */}
               </div>
               :
               <NavLink to="/login">

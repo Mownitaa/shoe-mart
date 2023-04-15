@@ -10,6 +10,7 @@ import { Register } from './Pages/Login/Register/Register'
 import { ProductDetails } from './Pages/ProductList/ProductDetails';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/Routes/PrivateRoute';
+import { Dashboard } from './Dashboard/Dashboard/Dashboard';
 
 
 function App() {
@@ -35,8 +36,11 @@ function App() {
           <PrivateRoute path="/cart">
           <Cart></Cart>
           </PrivateRoute>
-          <Route path="/checkout">
+          <PrivateRoute path="/checkout">
           <Checkout></Checkout>
+          </PrivateRoute>
+          <Route path="/dashboard">
+          <Dashboard></Dashboard>
           </Route>
           <Route path="/login">
           <Login></Login>

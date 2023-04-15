@@ -22,22 +22,24 @@ const googleProvider = new GoogleAuthProvider();
         createUserWithEmailAndPassword(auth,email,password)
         .then((userCredential) => {
             setAuthError('');
-            // const newUser = {email, displayName:name};
-            // setUser(newUser);
+            const newUser = {email, displayName:name};
+            setUser(newUser);
+            
             //save user to database
-            // saveUser(email, name, 'POST');
-            //send name to firebase after creation
-          //   updateProfile(auth.currentUser, {
-          //     displayName: name
-            })
-          // .then(() => {
-             
-          //   }).catch((error) => {
-              
-          //   });
+            saveUser(email, name, 'POST');
 
-          //   history.replace('/');
-          // })
+            //send name to firebase
+            updateProfile(auth.currentUser, {
+              displayName: name
+            })
+          .then(() => {
+             
+            }).catch((error) => {
+              
+            });
+
+            history.replace('/');
+          })
           .catch((error) => {
             setAuthError(error.message);
             console.log(error);
@@ -70,7 +72,7 @@ const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
         .then((result) => {
           const user = result.user;
-          // saveUser(user.email, user.displayName, 'PUT')
+          saveUser(user.email, user.displayName, 'PUT')
           setAuthError('');
           const destination = location?.state?.from || '/';
             history.replace(destination);
@@ -122,17 +124,17 @@ const googleProvider = new GoogleAuthProvider();
           
       }
 
-    //   const saveUser = (email, displayName, method) => {
-    //     const user = {email, displayName};
-    //     fetch('https://appointlet-server.vercel.app/users', {
-    //       method:method,
-    //       headers:{
-    //         'content-type': 'application/json'
-    //       },
-    //       body:JSON.stringify(user)
-    //     })
-    //     .then()
-    //   }
+      const saveUser = (email, displayName, method) => {
+        const user = {email, displayName};
+        fetch('http://localhost:5000/users', {
+          method:method,
+          headers:{
+            'content-type': 'application/json'
+          },
+          body:JSON.stringify(user)
+        })
+        .then()
+      }
 
     return {
         user,
