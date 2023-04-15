@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../redux/slices/cartSlice';
@@ -16,8 +17,8 @@ export const ProductCard = (props) => {
       img: props.img
     })
   );
-    alert("Product Added Successfully!")
-  }
+    toast.success("Product Added Successfully!")
+  };
 
   const {id, name, price, img, type } = props.product;
   return (
@@ -26,7 +27,7 @@ export const ProductCard = (props) => {
   className="ml-8 text-left block max-w-[22rem] rounded-lg bg-white">
   <a href="#!" data-te-ripple-init data-te-ripple-color="light">
     <Link to={`/shop/${id}`}>
-    <motion.img whileHover={{scale:1.2}}
+    <motion.img whileHover={{scale:1.1}}
       className="rounded-t-lg"
       src={img}
       alt="" />
@@ -45,7 +46,7 @@ export const ProductCard = (props) => {
     <span className="mb-4 lg:mr-48 sm:mr-36 text-base text-neutral-600 dark:text-neutral-200">
       {price}
     </span>
-    <span className='mt-4 text-2xl' onClick={addToCart}>
+    <span className='cursor-pointer mt-4 text-2xl' onClick={addToCart}>
     <ion-icon name="add-circle"></ion-icon>
     </span>
   </div>
