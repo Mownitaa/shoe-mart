@@ -15,14 +15,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Provider store={store}>
         <ToastContainer
-            position="bottom-right"
+            position="bottom-left"
             autoClose={3000}
             closeOnClick
             draggable
             pauseOnHover
             theme="dark"
             />
-      <App />
+          <App />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import userIcon from '../../../assets/images/userIcon.png'
 
 export const Navigation = () => {
     let Links =[
@@ -7,6 +7,7 @@ export const Navigation = () => {
         {name:"Shop",link:"/shop"},
         {name:"Cart",link:"/cart"},
         {name:"Dashboard",link:"/dashboard"},
+        {name:<img className='w-12 mx-auto' src={userIcon} alt=""/>,link:"/login"},
         {name:<ion-icon name="log-in-outline"></ion-icon>,link:"/login"},
       ];
       let [open,setOpen]=useState(false);

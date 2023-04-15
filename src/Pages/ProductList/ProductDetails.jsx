@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-export const ProductDetails = () => {
+import { toast } from 'react-toastify';
+
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../redux/slices/cartSlice';
+
+export const ProductDetails = (props) => {
     const {productId} = useParams();
     const [product, setProduct] = useState([]);
     useEffect(()=>{
@@ -9,6 +14,20 @@ export const ProductDetails = () => {
         .then(res=> res.json())
         .then(data=> setProduct(data[`${productId-1}`]));
     }, [productId])
+
+    const dispatch = useDispatch()
+    const addToCart = ()=>{
+      dispatch(cartActions.addItem({
+        id: props.id,
+        name: props.name,
+        price: props.price,
+        img: props.img
+      })
+    );
+      toast.success("Product Added Successfully!")
+    };
+
+
   return (
     <div className='container mt-28'>
       <div className='text-left grid md:grid-cols-2 sm:grid-cols gap-4'>
@@ -25,17 +44,18 @@ export const ProductDetails = () => {
         
 
         <div className='mt-8'>
-        <button className="mr-4 bg-black hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <button  onClick={addToCart} className="mr-4 bg-black hover:bg-gray-400 text-white font-bold py-2 px-4 rounded border-none">
           Add To Cart
         </button>
         <Link to='/shop'>
-        <button className="bg-gray-400 hover:bg-black text-white font-bold py-2 px-4 rounded">
+        <button className="bg-gray-400 hover:bg-black text-white font-bold py-2 px-4 rounded border-none">
           Back To Shopping
         </button>
         </Link>
         </div>
         </div>
     </div>
+    
     <div className='text-left mt-24'>
       <h3 className='mb-8 text-3xl font-bold'>Description</h3>
       <p >{product.description}</p>
