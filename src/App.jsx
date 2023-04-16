@@ -10,9 +10,8 @@ import { Register } from './Pages/Login/Register/Register'
 import { ProductDetails } from './Pages/ProductList/ProductDetails';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/Routes/PrivateRoute';
-import { Dashboard } from './Dashboard/Dashboard/Dashboard';
-
-
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+ 
 function App() {
 
   return (
