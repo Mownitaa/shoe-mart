@@ -24,8 +24,8 @@ import useAuth from '../../../hooks/useAuth';
 import { AddCustomer } from '../Customers/AddCustomer';
 import { AdminProducts } from '../AdminProducts/AdminProducts';
 import { AddProduct } from '../AdminProducts/AddProduct';
-// import AdminRoute from '../../Login/AdminRoute/AdminRoute';
-
+import { AdminProductDetails } from '../AdminProducts/AdminProductDetails';
+import AdminRoute from '../../Login/Routes/AdminRoute';
 const drawerWidth = 180;
 
 function Dashboard(props) {
@@ -50,6 +50,7 @@ const {admin} = useAuth();
       <Link className='text-black' to={`${url}/customers`}><MenuItem >Customers</MenuItem></Link>
       <Link className='text-black' to={`${url}/addCustomer`}><MenuItem >Add Customer</MenuItem></Link>
       <Link className='text-black' to={`${url}/products`}><MenuItem >Products</MenuItem></Link>
+      {/* <Link className='text-black' to={`${url}/products/${_id}`}><MenuItem >Product Details</MenuItem></Link> */}
       <Link className='text-black' to={`${url}/addProduct`}><MenuItem >Add Product</MenuItem></Link>
       </Box>
     }
@@ -124,21 +125,24 @@ const {admin} = useAuth();
           <Route exact path={path}>
           <DashboardHome></DashboardHome>
           </Route>
-          <Route exact={true} path={`${path}/addAdmin`}>
+          <AdminRoute exact={true} path={`${path}/addAdmin`}>
             <AddAdmin></AddAdmin>
-          </Route>
-          <Route exact={true} path={`${path}/customers`}>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/customers`}>
             <Customers></Customers>
-          </Route>
-          <Route exact={true} path={`${path}/addCustomer`}>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/addCustomer`}>
             <AddCustomer></AddCustomer>
-          </Route>
-          <Route exact={true} path={`${path}/products`}>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/products`}>
             <AdminProducts></AdminProducts>
-          </Route>
-          <Route exact={true} path={`${path}/addProduct`}>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/products/:productId`}>
+            <AdminProductDetails></AdminProductDetails>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/addProduct`}>
             <AddProduct></AddProduct>
-          </Route>
+          </AdminRoute>
         </Switch>
       </Box>
     </Box>

@@ -11,7 +11,7 @@ const [user,setUser] = useState({});
 const [isLoading, setIsLoading] = useState(true);
 const [authError, setAuthError] = useState('');
 const [admin, setAdmin] = useState(false);
-// const [token, setToken] = useState('');
+const [token, setToken] = useState('');
 
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
@@ -88,11 +88,11 @@ const googleProvider = new GoogleAuthProvider();
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                // getIdToken(user)
-                // .then(idToken => {
-                //     // console.log('token:',idToken);
-                //     setToken(idToken);
-                // })
+                getIdToken(user)
+                .then(idToken => {
+                    // console.log('token:',idToken);
+                    setToken(idToken);
+                })
             } else {
                 setUser({})
             }
@@ -103,7 +103,7 @@ const googleProvider = new GoogleAuthProvider();
 
         //admin
         useEffect(()=> {
-            fetch(`http://localhost:5000/users/${user.email}`)
+            fetch(`https://shoe-mart-server.vercel.app/users/${user.email}`)
             .then(res=>res.json())
             .then(data=> setAdmin(data.admin))
         }, [user.email])
@@ -126,7 +126,7 @@ const googleProvider = new GoogleAuthProvider();
 
       const saveUser = (email, displayName, method) => {
         const user = {email, displayName};
-        fetch('http://localhost:5000/users', {
+        fetch('https://shoe-mart-server.vercel.app/users', {
           method:method,
           headers:{
             'content-type': 'application/json'
@@ -139,7 +139,7 @@ const googleProvider = new GoogleAuthProvider();
     return {
         user,
         admin,
-        // token,
+        token,
         isLoading,
         authError,
         registerUser,

@@ -8,7 +8,7 @@ export const Customers = () => {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-      const url = 'http://localhost:5000/users'
+      const url = 'https://shoe-mart-server.vercel.app/users'
       fetch(url)
       .then(res=>res.json())
       .then(data => setCustomers(data));

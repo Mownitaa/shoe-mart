@@ -1,21 +1,20 @@
 import { Alert, Button, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react'
-import useAuth from '../../../hooks/useAuth';
-
+import useAuth from '../../../hooks/useAuth'
 export const AddAdmin = () => {
   const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    // const {token} = useAuth();
+    const {token} = useAuth();
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
   const handleAdminSubmit = e => {
     const user = {email};
-    fetch('http://localhost:5000/users/admin', {
+    fetch('https://shoe-mart-server.vercel.app/users/admin', {
         method:'PUT',
         headers: {
-            // 'authorization' : `Bearer ${token}`,
+            'authorization' : `Bearer ${token}`,
             'content-type' : 'application/json'
         },
         body: JSON.stringify(user)

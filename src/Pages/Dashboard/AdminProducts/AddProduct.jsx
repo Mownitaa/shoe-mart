@@ -9,7 +9,7 @@ export const AddProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://shoe-mart-server.vercel.app/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     // alert('Added Successfully');
@@ -22,7 +22,7 @@ export const AddProduct = () => {
   return (
     <div>
         <div>
-         <Typography sx={{fontSize:"2rem", fontWeight:600}}>Add New Admin</Typography>
+         <Typography sx={{fontSize:"2rem", fontWeight:600}}>Add New Product</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 60 })} className="w-96 mt-8 p-2 border" type="text" placeholder="Name" />
 <br/><br/>

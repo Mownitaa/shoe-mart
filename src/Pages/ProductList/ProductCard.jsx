@@ -46,7 +46,8 @@ export const ProductCard = (props) => {
       {type} 
     </p>
     <span className="mb-4 lg:mr-48 sm:mr-36 text-base text-neutral-600 dark:text-neutral-200">
-      {price}
+      <span className='font-bold'>Price: </span>
+       {price}
     </span>
     <span className='cursor-pointer mt-4 text-2xl' onClick={addToCart}>
     <ion-icon name="add-circle"></ion-icon>

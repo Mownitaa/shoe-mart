@@ -12,7 +12,7 @@ export const AdminProducts = () => {
     const [adminProducts, setAdminProducts]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://shoe-mart-server.vercel.app/products')
         .then(res=>res.json())
         .then(data=>setAdminProducts(data))
     })
