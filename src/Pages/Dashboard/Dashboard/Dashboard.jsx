@@ -21,6 +21,9 @@ import {DashboardHome} from '../DashboardHome/DashboardHome';
 import {AddAdmin} from '../AddAdmin/AddAdmin';
 import { Customers } from '../Customers/Customers';
 import useAuth from '../../../hooks/useAuth';
+import { AddCustomer } from '../Customers/AddCustomer';
+import { AdminProducts } from '../AdminProducts/AdminProducts';
+import { AddProduct } from '../AdminProducts/AddProduct';
 // import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const drawerWidth = 180;
@@ -45,6 +48,9 @@ const {admin} = useAuth();
       admin && <Box>
         <Link className='text-black' to={`${url}/addAdmin`}><MenuItem>Add New Admin</MenuItem></Link>
       <Link className='text-black' to={`${url}/customers`}><MenuItem >Customers</MenuItem></Link>
+      <Link className='text-black' to={`${url}/addCustomer`}><MenuItem >Add Customer</MenuItem></Link>
+      <Link className='text-black' to={`${url}/products`}><MenuItem >Products</MenuItem></Link>
+      <Link className='text-black' to={`${url}/addProduct`}><MenuItem >Add Product</MenuItem></Link>
       </Box>
     }
     </div>
@@ -123,6 +129,15 @@ const {admin} = useAuth();
           </Route>
           <Route exact={true} path={`${path}/customers`}>
             <Customers></Customers>
+          </Route>
+          <Route exact={true} path={`${path}/addCustomer`}>
+            <AddCustomer></AddCustomer>
+          </Route>
+          <Route exact={true} path={`${path}/products`}>
+            <AdminProducts></AdminProducts>
+          </Route>
+          <Route exact={true} path={`${path}/addProduct`}>
+            <AddProduct></AddProduct>
           </Route>
         </Switch>
       </Box>
