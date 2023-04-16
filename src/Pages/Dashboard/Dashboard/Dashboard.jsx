@@ -20,7 +20,7 @@ import {
 import {DashboardHome} from '../DashboardHome/DashboardHome';
 import {AddAdmin} from '../AddAdmin/AddAdmin';
 import { Customers } from '../Customers/Customers';
-// import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 // import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const drawerWidth = 180;
@@ -29,7 +29,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-// const {admin} = useAuth();
+const {admin} = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -41,17 +41,12 @@ function Dashboard(props) {
       <NavLink className='text-black' to="/home"><MenuItem>Shoe-Mart</MenuItem>
       </NavLink>
       <Link className='text-black' to={`${url}`} ><MenuItem>Dashboard</MenuItem></Link>
-
-    {/* {
+    {
       admin && <Box>
-        <Link to={`${url}/makeAdmin`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Make Admin</MenuItem></Link>
-      <Link to={`${url}/addDoctor`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Add Doctor</MenuItem></Link>
-      </Box>
-    }  */}
-    <Box>
         <Link className='text-black' to={`${url}/addAdmin`}><MenuItem>Add New Admin</MenuItem></Link>
       <Link className='text-black' to={`${url}/customers`}><MenuItem >Customers</MenuItem></Link>
       </Box>
+    }
     </div>
   );
 
