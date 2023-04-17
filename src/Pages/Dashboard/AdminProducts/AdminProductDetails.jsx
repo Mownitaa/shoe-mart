@@ -12,7 +12,7 @@ export const AdminProductDetails = () => {
     useEffect(()=>{
         fetch(`https://shoe-mart-server.vercel.app/products/${productId}`)
         .then(res=> res.json())
-        .then(data=> console.log(data));
+        .then(data=> setAdminProduct(data));
     }, [])
 
     const dispatch = useDispatch()
