@@ -23,7 +23,7 @@ export const AdminProduct = ({adminProduct}) => {
       <div
   className="ml-8 text-left block max-w-[22rem] rounded-lg bg-white">
   <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-     <Link to={`/products/${_id}`}>
+     <Link to={`/dashboard/products/${_id}`}>
     <motion.img whileHover={{scale:1.1}}
       className="rounded-t-lg"
       src={img}
